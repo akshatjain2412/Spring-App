@@ -1,0 +1,85 @@
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   }
+
+   body {
+     height: 100vh;
+     background-image: url('');
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     overflow: hidden;
+   }
+
+   .overlay {
+     background-color: rgba(0, 0, 0, 0.55);
+     position: absolute;
+     top: 0;
+     left: 0;
+     height: 100%;
+     width: 100%;
+     z-index: 0;
+   }
+
+   .text-container {
+     position: relative;
+     z-index: 1;
+     text-align: center;
+     padding: 3rem;
+     background: rgba(255, 255, 255, 0.02);
+     border: 2px solid rgba(255, 255, 255, 0.3);
+     border-radius: 2rem;
+     backdrop-filter: blur(8px);
+     box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+     width: 90%;
+     max-width: 700px;
+   }
+
+   .text-container h1 {
+     font-size: 3.5rem;
+     color: #ffffff;
+     letter-spacing: 2px;
+     margin-bottom: 1.5rem;
+   }
+
+   .text-container h3 {
+     font-size: 1.5rem;
+     color: #e0e0e0;
+     line-height: 1.8;
+     margin-bottom: 2rem;
+   }
+
+   .cta-button {
+     display: inline-block;
+     padding: 0.75rem 2rem;
+	 background: linear-gradient(to right, #20c997, #17a589);
+     color: white;
+     font-size: 1rem;
+     font-weight: bold;
+     border-radius: 50px;
+     text-decoration: none;
+     transition: all 0.3s ease-in-out;
+     box-shadow: 0 0 15px #17a589;
+   }
+
+   .cta-button:hover {
+     background: linear-gradient(to left,#17a589,#20c997);
+     box-shadow: 0 0 25px #17a589;
+     transform: scale(1.05);
+   }
+
+   @media (max-width: 768px) {
+     .text-container h1 {
+       font-size: 2.2rem;
+     }
+
+     .text-container h3 {
+       font-size: 1.1rem;
+     }
+   }

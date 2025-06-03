@@ -1,0 +1,123 @@
+body {
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     margin: 0;
+     padding: 0;
+     background-color: #000;
+     display: flex;
+     flex-direction: column;
+	 justify-content: center;
+     align-items: center;
+     min-height: 100vh;
+   }
+   
+   
+   body::before, body::after {
+        content: '';
+        position: fixed;
+        border-radius: 50%;
+        z-index: 0;
+    }
+    body::before {
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, #20c99755, #20c99711);
+        top: -100px;
+        left: -100px;
+    }
+    body::after {
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(circle, #0dcaf0aa, #0dcaf022);
+        bottom: -10px;
+        right: -60px;
+    }
+
+   a {
+	     position: fixed;
+	     top: 20px;
+	     right: 30px;
+	     background-color: #20c997;
+	     color: white;
+	     padding: 10px 20px;
+	     border-radius: 8px;
+	     text-decoration: none;
+	     font-weight: 600;
+	     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	     z-index: 10;
+	     transition: background 0.3s, transform 0.3s;
+	   
+   }
+
+   a:hover {
+     background-color: #17a589;
+   }
+
+   .addUser {
+	
+     background-color: #f1f1f1;
+     margin-top: 40px;
+     padding: 30px 40px;
+     border-radius: 12px;
+     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+     width: 100%;
+     max-width: 500px;
+   }
+
+   .addUser h2 {
+      margin-bottom: 40px;
+      font-size: 24px;
+      color: #333;
+    }
+
+   form {
+     display: flex;
+     flex-direction: column;
+   }
+
+   label {
+	
+	 margin-left:5px;
+	 font-size: 14px;
+     font-weight: 600;
+     margin-bottom: -6px;
+     color: #555;
+	 z-index: 10;
+   }
+   
+   span{
+	background-color: #f1f1f1;
+   }
+
+   input {
+	   width: 100%;
+	   padding: 10px;
+	   border: none;
+	   outline: none;
+	   background: #fff;
+	   border-bottom: 2px solid #ccc;
+	   font-size: 14px;
+	   resize: none;
+	   border-radius: 4px;
+   }
+
+   input:focus {
+     border-color: #20c997;
+     outline: none;
+   }
+
+   button {
+	  
+     padding: 12px;
+     background-color: #20c997;
+     color: white;
+     border: none;
+     border-radius: 6px;
+     font-weight: bold;
+     font-size: 16px;
+     cursor: pointer;
+     transition: background-color 0.3s;
+   }
+
+   button:hover {
+     background-color: #17a589;
+   }

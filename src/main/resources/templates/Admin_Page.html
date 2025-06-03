@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>ADMIN PAGE :</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+	<link rel="stylesheet" href="" th:href="@{/css/Admin_page.css}" />
+	
+
+</head>
+
+<body>
+	
+	<a class="back" href="/login">Back</a>
+	<div class=sidebar>
+		<h2>Services</h2>
+		<a href="#" onclick="renderSection('admins')">Admins</a>
+		<a href="#" onclick="renderSection('products')">Products</a>
+		<a href="#" onclick="renderSection('users')">Users</a>
+		<a href="#" onclick="renderSection('orders')">Orders</a>
+		<a href="#" onclick="renderSection('addadmin')">Add_Admin</a>
+		<a href="#" onclick="renderSection('addUser')">Add_User</a>
+		<a href="#" onclick="renderSection('addProducts')">Add_Product</a>
+	</div>
+	<div class="container">
+	<div id="content" class="Tables">
+		
+		
+	</div>
+	
+	
+	<template id="admins-template">
+	  <div class="admins">
+	    <h2>Admins :</h2>
+	    <table>
+	      <tr>
+	        <th>Admin_Id</th>
+	        <th>Admin_Name</th>
+	        <th>Admin_Email</th>
+	        <th>Admin_Number</th>
+	        <th>Actions</th>
+	      </tr>
+	      <tr th:each="admin : ${admins}">
+	        <td th:text="${admin.adminId}"></td>
+	        <td th:text="${admin.adminName}"></td>
+	        <td th:text="${admin.adminEmail}"></td>
+	        <td th:text="${admin.adminNumber}"></td>
+	        <td>
+	          <a th:href="@{'/updateAdmin/' + ${admin.adminId}}"><button type="submit" class="upBtn">Update</button></a>&nbsp;
+	          <a th:href="@{'/deleteAdmin/' + ${admin.adminId}}"><button type="submit" class="delBtn">Delete</button></a>
+	        </td>
+	      </tr>
+	    </table>
+	   
+	  </div>
+	</template>
+	
+	<template id="users-template">
+	  <div class="users">
+	    <h2>Users :</h2>
+	    <table>
+	      <tr>
+	        <th>User_Id</th>
+	        <th>User_Name</th>
+	        <th>User_Email</th>
+	        <th>User_Number</th>
+	        <th>Actions</th>
+	      </tr>
+	      <tr th:each="user : ${users}">
+	        <td th:text="${user.u_id}"></td>
+	        <td th:text="${user.uname}"></td>
+	        <td th:text="${user.uemail}"></td>
+	        <td th:text="${user.unumber}"></td>
+	        <td>
+	          <a th:href="@{'/updateUser/' + ${user.u_id}}"><button type="submit" class="upBtn">Update</button></a>&nbsp;
+	          <a th:href="@{'/deleteUser/' + ${user.u_id}}"><button type="submit" class="delBtn">Delete</button></a>
+	        </td>
+	      </tr>
+	    </table>
+	   
+	  </div>
+	</template>
+	
+	
+	<template id="orders-template">
+	  <div class="details">
+	    <h2>Orders :</h2>
+	    <table>
+	      <tr>
+	        <th>User_Name</th>
+	        <th>User_Email</th>
+	        <th>Product_Name</th>
+	        <th>Product_Price</th>
+	        <th>Product_Quantity</th>
+	        <th>Total_Amount</th>
+	        <th>Date</th>
+	      </tr>
+	      <tr th:each="order : ${orders}">
+	        <td th:text="${order.user.uname}"></td>
+	        <td th:text="${order.user.uemail}"></td>
+	        <td th:text="${order.oName}"></td>
+	        <td th:text="${order.oPrice}"></td>
+	        <td th:text="${order.oQuantity}"></td>
+	        <td th:text="${order.totalAmmout}"></td>
+	        <td th:text="${order.orderDate}"></td>
+	      </tr>
+	    </table>
+	  </div>
+	</template>
+
+	
+	<template id="products-template">
+	  <div class="products">
+	    <h2>Products :</h2>
+	    <table>
+	      <tr>
+	        <th>Product_Id</th>
+	        <th>Product_Name</th>
+	        <th>Product_Price</th>
+	        <th>Actions</th>
+	      </tr>
+	      <tr th:each="product : ${products}">
+	        <td th:text="${product.pid}"></td>
+	        <td th:text="${product.pname}"></td>
+	        <td th:text="${product.pprice}"></td>
+	        <td>
+	          <a th:href="@{'/updateProduct/' + ${product.pid}}"><button type="submit" class="upBtn">Update</button></a>&nbsp;
+	          <a th:href="@{'/deleteProduct/' + ${product.pid}}"><button type="submit" class="delBtn">Delete</button></a>
+	        </td>
+	      </tr>
+	    </table>
+	   
+	  </div>
+	</template>
+	
+	
+	
+	<template id="addadmin-template">
+	<div class="addAdmin">
+			<h2>ADD NEW <span style="color:green;">ADMIN</span></h2>
+			<form action="" th:action="@{/addingAdmin}" method="post">
+				<label> <span>Admin_Name :</span></label>
+				<input type="text" name="adminName" placeholder="Enter name" class="adminform" minlength="2" required>
+				<br />
+
+				<label><span>Admin_Email : </span> </label>
+				<input type="email" name="adminEmail" placeholder="Enter email" class="adminform" required><br />
+
+
+				<label><span> Admin_Number :</span>  </label>
+				<input type="tel" name="adminNumber" placeholder="Enter 10 digit mobile number" class="adminform"
+					pattern="[0-9]{10}" required /><br />
+
+
+				<input type="hidden" name="adminPassword" value="1234" />
+				<button type="submit">Add_Admin</button>
+			</form>
+		</div>
+		</template>
+	
+    <template id="addUser-template">
+		
+		<div class="addUser">
+				<h2 >ADD NEW <span style="color:green;">USER</span></h2>
+				<form action="" th:action="@{/addingUser}" method="post">
+					<label for="name"><span>User_Name :</span></label>
+					<input type="text" name="uname" placeholder="Enter Name" required />
+					<br>
+					<label for="email">User_Email :</label>
+					<input type="email" name="uemail"  placeholder="Enter Email" required/>
+					<br>
+					<label for="telephone">User_Number :</label>
+					<input type="tel" name="unumber" pattern="[0-9]{10}"  placeholder="Enter Number" required/>
+					<br>
+					<input type="hidden" name="upassword" value="2330" />
+					<button type="submit">Add_User</button>
+				</form>
+				
+			</div>
+	</template>
+
+	<template id="addProducts-template">
+		<div class="addProducts">
+			<h2>ADD NEW <span style="color: green;">PRODUCT</span> </h2>
+			<form action="" th:action="@{/addingProduct}" method="post">
+				<label><span>Product Name :</span></label>
+				<input type="text" name="pname" value="" placeholder="Enter Product Name" /> <br />
+				<label><span>Product Price :</span></label>
+				<input type="text" name="pprice" placeholder="Enter Product Price" /><br />
+				<label><span>Product Descreption :</span></label>
+				<textarea name="pdescription" id="" cols="15" rows="1"
+				placeholder="Enter Product Description"></textarea><br />
+
+				<button type="submit">Add_Product</button>
+
+			</form>
+		</div>
+		
+	</template>
+
+	
+	<script>
+	  function renderSection(sectionId) {
+	    const template = document.getElementById(`${sectionId}-template`);
+	    const content = document.getElementById("content");
+	    content.innerHTML = template.innerHTML;
+	  }
+
+	  // Optional: Load default view
+	  window.onload = () => renderSection('admins');
+	</script>
+</body>
+
+</html>

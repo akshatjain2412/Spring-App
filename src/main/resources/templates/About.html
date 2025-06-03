@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>FoodFrenzy</title>
+    <link rel="icon" type="image/x-icon" href="./Images/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="" th:href="@{/css/Navigation.css}" />
+    <link rel="stylesheet" href="" th:href="@{/css/About.css}" /> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<!--<link rel="stylesheet" type="text/css" href="abc.css"> -->
+    <style type="text/css"> 
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap'); 
+ /* General styles */
+ body {
+   margin: 0;
+   padding: 0;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   background: #f9f9f9;
+   color: #333;
+ }
+ 
+ body::before, body::after {
+     content: '';
+     position: fixed;
+     border-radius: 50%;
+     z-index: 0;
+ }
+ body::before {
+     width: 400px;
+     height: 400px;
+     background: radial-gradient(circle, #20c99755, #20c99711);
+     top: -100px;
+     left: -100px;
+ }
+ body::after {
+     width: 200px;
+     height: 200px;
+     background: radial-gradient(circle, #0dcaf0aa, #0dcaf022);
+     bottom: -10px;
+     right: -60px;
+ }
+
+
+ /* Contact Section */
+ .contact {
+   padding: 60px 100px;
+   background: #fff;
+ }
+
+ .contact .content {
+   text-align: center;
+   margin-bottom: 20px;
+ }
+
+ .contact .content h2 {
+   font-size: 36px;
+   color: #333;
+   margin-top: 10px;
+   margin-bottom: 10px;
+ }
+
+ .contact .content p {
+   font-size: 16px;
+   max-width: 700px;
+   margin: auto;
+   color: #666;
+ }
+
+ /* Container Layout */
+ .contact .container {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+ }
+
+ /* Contact Info */
+ .contactInfo {
+	z-index: 1;
+   justify-content: center;
+   width: 100%;
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: row;
+   gap: 15%;
+ }
+
+ .contactInfo .box {
+   display: flex;
+   align-items: center;
+   gap: 0px;
+   margin-top: 15px;
+   margin-bottom: 35px;
+ }
+
+ .contactInfo .icon {
+   font-size: 24px;
+   color: #20c997;
+   min-width: 40px;
+ }
+
+ .contactInfo .text h3 {
+   margin: 0;
+   font-size: 18px;
+   color: #333;
+ }
+
+ .contactInfo .text p {
+   margin: 5px 0 0;
+   color: #555;
+ }
+
+ /* Form */
+ .contactForm {
+   width: 70%;
+   height: auto;
+   background: #f1f1f1;
+   padding: 50px;
+   border-radius: 10px;
+ }
+
+ .contactForm h2 {
+   margin-bottom: 40px;
+   font-size: 24px;
+   color: #333;
+ }
+
+ .contactForm .inputBox {
+   position: relative;
+   width: 100%;
+   margin-bottom: 30px;
+ }
+
+ .contactForm .inputBox input,
+ .contactForm .inputBox textarea {
+   width: 100%;
+   padding: 10px;
+   border: none;
+   outline: none;
+   background: #fff;
+   border-bottom: 2px solid #ccc;
+   font-size: 16px;
+   resize: none;
+   border-radius: 4px;
+ }
+
+ .contactForm .inputBox span {
+   position: absolute;
+   left: 10px;
+   top: -10px;
+   font-size: 14px;
+   background: #f1f1f1;
+   padding: 0 5px;
+   color: #555;
+ }
+
+ .contactForm .inputBox input[type="submit"] {
+   background: linear-gradient(to right, #20c997, #17a589);
+   color: #fff;
+   font-weight: bold;
+   cursor: pointer;
+  
+ }
+
+ .contactForm .inputBox input[type="submit"]:hover {
+   transition: background 1s ease;
+   background: #20c997;
+ }
+ 
+ .last{
+	display: flex;
+	flex-direction: column;
+ }
+
+ /* Social Media Icons */
+ .txt {
+   text-align: center;
+   margin-top: 40px;
+   font-size: 30px;
+   color: #333;
+   gap:50%;
+   }
+
+ .sci {
+   list-style: none;
+   display: flex;
+   justify-content: center;
+   padding: 0;
+   gap: 10vw;
+   margin-top: 20px;
+ }
+
+ .sci li a {
+   font-size: 40px;
+   color: #555;
+   transition: color 0.3s;
+ }
+
+ .sci li a:hover {
+   color: #20c997;
+ }
+ 
+ #loc{
+	border-radius: 20px;
+	margin:15px 40px;
+	
+	box-shadow:0 10px 10px rgba(0,0,0,0.1);
+ }
+ 
+
+ /* Responsive */
+ @media (max-width: 768px) {
+   .contact .container {
+     flex-direction: column;
+   }
+
+   .contactInfo,
+   .contactForm {
+     width: 100%;
+   }
+
+   .contact {
+     padding: 40px 20px;
+   }
+ }
+
+ </style>
+
+</head>
+<body>
+    <nav th:replace="~{Navigation::navbar()}"></nav>
+<section class="contact"> 
+ <div class="content"> 
+ <h2>Contact Us</h2>  
+ <p>FoodFrenzy is a web-based application designed to revolutionize food industry management. With its intuitive interface, it streamlines operations by seamlessly managing customer data, inventory, and orders. This comprehensive solution ensures efficient decision-making and provides accessibility from any device, enhancing productivity in the dynamic food business landscape.
+</p>
+<h2>Our location</h2>
+ </div> 
+ <div class="container"> 
+	
+<div class="contactInfo">
+	<div  class="location">
+
+	        <iframe id =loc src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14275.065136257876!2d78.77631218632804!3d26.559775128200428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1748799616637!5m2!1sen!2sin" width="900" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+	</div> 
+	
+ <div class="box"> 
+<div class="icon"><b></b><i class="fa-sharp fa-solid fa-location-dot"></i></div> 
+<div class="text"> 
+ <h3>Address</h3> 
+ <p>Housing Colony,Bhind<br>477001</p>
+ </div>
+  </div> 
+   <div class="box"> 
+<div class="icon"><b></b><i class="fa-solid fa-phone"></i></div> 
+<div class="text"> 
+ <h3>Phone</h3> 
+ <p>+91 7089310921</p>
+ </div>
+  </div> 
+  <div class="box"> 
+<div class="icon"><b></b><i class="fa-solid fa-envelope"></i></div> 
+<div class="text"> 
+ <h3>Email</h3> 
+ <p>akshatjain241203@gmail.com</p>
+ </div>
+  </div> 
+  <div class="contactForm"> 
+  	<form> 
+  	 <h2>Send <span style="color: green;">Message</span></h2> 
+  	 <div class="inputBox"> 
+  	<input type="text" name="" required="required"> 
+  	<span>Full Name</span>
+  	  </div> 
+  	 <div class="inputBox"> 
+  	<input type="text" name="" required="required"> 
+  	<span>Email</span>
+  	  </div> 
+  	   <div class="inputBox"> 
+  	<textarea required="required"></textarea>
+  	<span>Type your message...</span>
+  	  </div> 
+  	   <div class="inputBox"> 
+  	<input type="submit" value="Send"> 
+  	  </div>
+  	 </form>
+
+  	</div>
+<div class="last">
+<h2 class="txt">Connect with us</h2>
+<ul class="sci">  
+	<li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li> 
+	<li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li> 
+	<li><a href="#"><i class="fa-brands fa-instagram"></i></a></li> 
+	<li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+</ul>
+ </div>
+ </div>  
+ </div>
+ </section>
+</body>
+</html>

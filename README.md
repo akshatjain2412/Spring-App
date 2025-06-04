@@ -1,7 +1,7 @@
-# FoodFrenzy
-FoodFrenzy is a comprehensive system designed for managing customers, inventory, and orders. It offers secure authentication, role-based access control, and database integration using MySQL. Built with Spring Boot and Thymeleaf, the application provides a seamless experience for admin and staff members.
+# about
+it is a comprehensive system designed for managing customers, inventory, and orders. It offers secure authentication, role-based access control, and database integration using MySQL. Built with Spring Boot and Thymeleaf, the application provides a seamless experience for admin and staff members.
 
-![Screenshot 2024-10-02 123332](https://github.com/user-attachments/assets/1382d32f-3cbb-40c3-b6b5-9fc55cd5176f)
+
 
 
 ## Features
@@ -34,19 +34,19 @@ Before running this project, ensure you have the following installed:
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-repository-url/FoodFrenzy.git
+    git clone https://github.com/your-repository-url/Sring-App.git
     ```
 
 2. Navigate to the project directory:
     ```bash
-    cd FoodFrenzy
+    cd Spring-App
     ```
 
 3. Configure MySQL Database:
     - Create a new MySQL database.
     - Update `application.properties` with your MySQL credentials:
       ```properties
-      spring.datasource.url=jdbc:mysql://localhost:3306/foodfrenzy
+      spring.datasource.url=jdbc:mysql://localhost:3306/Spring-App
       spring.datasource.username=root
       spring.datasource.password=root
       spring.jpa.hibernate.ddl-auto=update
@@ -61,7 +61,7 @@ Before running this project, ensure you have the following installed:
     - Navigate to `http://localhost:8080` in your browser. 
 ## Website Screenshot
 
-Here is a preview of the FoodFrenzy interface:
+Here is a preview of the Applicaton interface:
 
 
 
@@ -71,7 +71,7 @@ Here is a preview of the FoodFrenzy interface:
 src/
 ├── main/
 │   ├── java/
-│   │   └── com.example.foodfrenzy/
+│   │   └── com.example.App/
 │   │       ├── controller/      # Contains all controllers
 │   │       ├── model/           # Contains entity classes
 │   │       ├── repository/      # Repository interfaces for database interaction
